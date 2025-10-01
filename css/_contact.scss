@@ -1,0 +1,98 @@
+///////////////////
+// contact
+
+.contact-wrapper {
+  width: 100%;
+  padding: 8% 15%;
+  display: flex;
+
+  @include md {
+    padding: 10%;
+    min-height: calc(100vh - 430px);
+  }
+
+  @include sm {
+    flex-direction: column;
+    padding-bottom: calc(10% + 80px);
+  }
+}
+
+.contact-lead {
+  width: 40%;
+  margin-right: 10%;
+  line-height: 2;
+
+  @include sm {
+    width: 95%;
+  }
+}
+
+.contact-lead-en {
+  font-size: 14px;
+}
+.contact-lead-jp {
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+.contact-form {
+  width: 50%;
+
+  @include sm {
+    margin-top: 15%;
+    width: 95%;
+  }
+
+  form {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  label {
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+    font-weight: $light;
+  }
+
+  input {
+    padding: 7px;
+    font-size: 14px;
+    text-align: left;
+    background: #fff;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+
+  textarea {
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+
+  .submit-btn {
+    padding: 12px 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-align: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    color: #464646;
+    transform: 1s ease;
+    font-weight: $light;
+
+    &:hover {
+      background: #464646;
+      color: #f9f9f9;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+  }
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+}

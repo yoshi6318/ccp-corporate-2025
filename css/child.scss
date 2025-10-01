@@ -1,0 +1,139 @@
+@import "common.scss";
+@import "vision.scss";
+@import "service.scss";
+@import "contact.scss";
+@import "about.scss";
+
+
+
+.left-line {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #707070;
+}
+
+////////////////////\\\
+// child page sectin title
+.sec-title-container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: $main-border;
+}
+.sec-title {
+  width: 20%;
+  height: inherit;
+  background: $light-orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    color: $white;
+    font-size: 14px;
+    font-weight: $medium;
+  }
+
+  @include md {
+    width: 20%;
+  }
+  @include sm {
+    width: 50%;
+  }
+}
+
+.sec-deco {
+  width: 15%;
+  height: inherit;
+  overflow: hidden;
+  position: relative;
+  @include md {
+    width: 80%;
+  }
+  @include sm {
+    width: 50%;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.sec-lead {
+  width: 65%;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include md {
+    display: none;
+  }
+}
+
+.page-top {
+  width: 100%;
+  padding: 5% 5vw;
+  position: relative;
+  margin-top: 100px;
+
+  @include sm {
+    margin-top: none;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.basic-container {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+}
+
+.page-intro-blank {
+  height: inherit;
+  width: 22%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 5vw;
+  position: relative;
+}
+
+.right-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #707070;
+  width: 1px;
+  height: 100%;
+}
+
+.page-intro-desc {
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 5vw;
+
+  p {
+    padding-top: 30px;
+    width: 78%;
+  }
+}
+

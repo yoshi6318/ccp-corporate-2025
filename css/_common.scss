@@ -1,0 +1,814 @@
+/////////////////////
+// google font
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap");
+//Roboto 700bold
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"); /////////////////////
+// color
+
+// $orange: #f0583a;
+//オレンジを一色に統一
+$orange: #ec7239;
+$light-orange: #ec7239;
+$gray: #ced2d1;
+$yellow: #d0b947;
+$black: #333333;
+$white: #efefef;
+
+$main-border: 1px solid #707070;
+$main-border-dot: 1px dotted #707070;
+
+/////////////////////
+// font
+$noto-serif: "Noto Serif JP", serif;
+$noto-sans: "Noto Sans JP", sans-serif;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+$ex-bold: 900;
+
+/////////////////////
+// breakpoint @mixin
+@mixin sm {
+  @media (max-width: ($sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: ($md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: ($lg)) {
+    @content;
+  }
+}
+$sm: 767px;
+$md: 1000px;
+$lg: 1001px;
+
+.only-lg {
+  @include lg {
+    display: block;
+  }
+  @include md {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+}
+.only-md {
+  @include lg {
+    display: none;
+  }
+  @include md {
+    display: block;
+  }
+  @include sm {
+    display: none;
+  }
+}
+.only-sm {
+  @include lg {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
+  @include sm {
+    display: block;
+  }
+}
+.not-lg {
+  @include lg {
+    display: none;
+  }
+  @include md {
+    display: block;
+  }
+  @include sm {
+    display: block;
+  }
+}
+///////////////////
+
+///////////////////
+// cursor
+
+.cursor {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease;
+  // transition-property: transform, background; カーソルがピタッと付いてくる
+  transform-origin: 100% 100%;
+  z-index: 999;
+
+  @include sm {
+    display: none;
+  }
+}
+
+.cursor2 {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: rgb(61, 61, 61);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.15s ease;
+  // transition-property: transform, background; カーソルがピタッと付いてくる
+  transform-origin: 100% 100%;
+  z-index: 999;
+
+  @include sm {
+    display: none;
+  }
+}
+
+/////////////////////
+// body
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $noto-sans;
+  font-weight: $regular;
+
+  overflow-x: hidden;
+  background-color: #f5f5f5;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+/////////////////////
+// header
+header {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.header-upper,
+.header-lower {
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  height: 50px;
+
+  @include sm {
+    height: 8vh;
+  }
+}
+.header-upper {
+  @include lg {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  @include lg {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  @include sm {
+    position: fixed;
+    bottom: 8vh;
+    left: 0;
+  }
+}
+.header-lower {
+  @include lg {
+    position: fixed;
+    top: 50px;
+    left: 0;
+  }
+  @include lg {
+    position: fixed;
+    top: 50px;
+    left: 0;
+  }
+  @include sm {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+// logo　と mail
+.header-logo,
+.header-mail {
+  height: 100%;
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    font-weight: $bold;
+  }
+}
+
+.header-logo {
+  width: 50%;
+  background: $light-orange;
+
+  @include sm {
+    width: calc(100% - 60px);
+  }
+
+  img {
+    height: 60%;
+    padding-left: 10%;
+  }
+  a:hover {
+    color: $white;
+    letter-spacing: 0.5px;
+  }
+}
+
+.header-mail {
+  width: 15%;
+
+  @include sm {
+    width: 25%;
+  }
+
+  a {
+    background-color: #ededed;
+    justify-content: center;
+    position: relative;
+    font-size: 13px;
+    font-weight: $regular;
+  }
+  a::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 3px;
+    border-radius: 4px;
+    background-color: $light-orange;
+    transition: width 0.3s ease;
+    transform: translate(-50%, -50%);
+  }
+  a:hover::after {
+    width: 36px;
+  }
+}
+
+.header-menu {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+
+  @include sm {
+    display: none;
+  }
+
+  nav {
+    width: 100%;
+    padding: 0 15%;
+
+    @include md {
+      padding: 0 5%;
+    }
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  a {
+    position: relative;
+    font-size: 13px;
+    font-weight: $regular;
+  }
+  a::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: $light-orange;
+    transition: 0.3s;
+    border-radius: 4px;
+    transform: translateX(-50%) translateY(-1px);
+  }
+  a:hover::after {
+    width: 100%;
+  }
+}
+
+.menu-current-page {
+  color: $light-orange;
+}
+
+.header-text {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 5vw;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  font-weight: $regular;
+
+  @include md {
+    font-size: 11px;
+  }
+  @include sm {
+    display: none;
+  }
+}
+
+.header-sns {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+
+  @include sm {
+    width: 75%;
+  }
+
+  ul {
+    width: 100%;
+    padding: 0 25%;
+    display: flex;
+    justify-content: space-between;
+
+    @include md {
+      padding: 0 15%;
+    }
+
+    @include sm {
+      padding: 0 10%;
+    }
+  }
+
+  i {
+    font-size: 18px;
+    transition: transform 0.5s ease;
+  }
+  i:hover {
+    transform: scale(1.2) translateY(-3px) rotate(360deg);
+  }
+}
+
+////////////// burger
+.burger {
+  @include lg {
+    display: none;
+  }
+
+  @include md {
+    display: none;
+  }
+
+  @include sm {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+  }
+}
+
+.burger-line {
+  width: 25px;
+  height: 1px;
+  display: inline-block;
+  background: $black;
+
+  &:nth-child(2) {
+    margin: 10px 0;
+  }
+}
+
+.sm-nav {
+  @include lg {
+    display: none;
+  }
+  @include md {
+    display: none;
+  }
+  @include sm {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+    padding-bottom: 16vh;
+
+    z-index: 888;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    clip-path: circle(50px at 100%-10%);
+    -webkit-clip-path: circle(50px at 100% -10%);
+  }
+
+  ul {
+    width: 80%;
+    border: 1px solid $black;
+    padding: 5% 0;
+    text-align: center;
+  }
+
+  li {
+    margin: 10% 0;
+  }
+
+  a {
+    font-weight: $bold;
+    letter-spacing: 1px;
+  }
+
+  a span {
+    font-size: 13px;
+    font-weight: $light;
+    letter-spacing: 0;
+    transform: translateY(-3px);
+  }
+}
+
+/////////////// header border
+.header-logo,
+.header-text,
+.header-sns {
+  border-right: $main-border;
+  border-bottom: $main-border;
+}
+
+.header-menu,
+.burger,
+.header-mail {
+  border-bottom: $main-border;
+}
+
+.header-logo,
+.header-menu,
+.burger {
+  border-top: $main-border;
+}
+
+////////////////////
+//lines
+
+.right-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: #707070;
+}
+.left-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 0%;
+  background: #707070;
+}
+
+.top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #707070;
+}
+.top-line-reverse {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: #707070;
+}
+
+/////////////////////
+// footer
+
+footer {
+  margin-top: auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-top: $main-border;
+  border-bottom: $main-border;
+
+  @include md {
+    flex-direction: column;
+  }
+
+  @include sm {
+    margin-bottom: calc(16vh + 49px);
+  }
+}
+
+.footer-logo a,
+.footer-copyright,
+.footer-mail a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-upper,
+.footer-lower {
+  width: 50%;
+  display: flex;
+
+  @include md {
+    width: 100%;
+  }
+}
+
+.footer-logo {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+  border-right: $main-border;
+
+  @include md {
+    width: 100%;
+    height: 50px;
+    border-bottom: $main-border;
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+  }
+}
+
+.footer-copyright {
+  font-size: 13px;
+  justify-content: center;
+  width: 70%;
+  height: 100%;
+  border-right: $main-border;
+
+  @include md {
+    justify-content: start;
+    margin-left: 10%;
+    font-size: 11.5px;
+    letter-spacing: -0.5px;
+    width: 70%;
+    height: 50px;
+  }
+  @include sm {
+    width: 100%;
+  }
+}
+
+.footer-mail {
+  width: 30%;
+  height: 100%;
+  background-color: #efefef;
+
+  @include md {
+    width: 30%;
+  }
+  @include sm {
+    display: none;
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    font-size: 13px;
+  }
+  a::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: $light-orange;
+    transition: 0.3s;
+    border-radius: 4px;
+    transform: translateX(-50%) translateY(-1px);
+  }
+  a:hover::after {
+    width: 36px;
+  }
+}
+
+///////////////////
+// child page
+.child-top-img {
+  margin-top: 100px;
+  width: 100%;
+  height: 280px;
+
+  @include md {
+    margin-top: 0;
+  }
+  @include sm {
+    height: 150px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+////////////////////
+// progess bar indicator
+////////////////////
+
+.progress-section {
+  z-index: 777;
+  position: fixed;
+  left: 10vw;
+  bottom: 60px;
+  // left: 0px; //マウスにひっつく動き
+  // top: 0px;  //マウスにひっつく動き
+  width: 40px;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  will-change: transform;
+  transition: 0.3s ease-out;
+
+  @include sm {
+    bottom: 18vh;
+    width: 35px;
+  }
+}
+
+.progress-bar-wrap {
+  position: relative;
+  width: 5px;
+  border: $main-border;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #707070;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  right: 0%;
+  background-color: $white;
+}
+
+.progress-num {
+  font-size: 12px;
+  align-self: flex-end;
+  @include sm {
+    font-size: 11px;
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+////////////////////
+// CHild disc item
+.child-desc-item {
+  h3 {
+    font-size: 18px;
+    font-weight: $medium;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  h3::before {
+    content: "";
+    position: absolute;
+    background: $light-orange;
+    width: 5px;
+    height: 75%;
+    top: 20%;
+    left: -15px;
+  }
+}
+
+.child-desc-jp {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+
+  &::first-letter {
+    font-size: 150%;
+  }
+}
+.child-desc-en {
+  font-size: 15px;
+  line-height: 1.8;
+  &::first-letter {
+    font-size: 150%;
+  }
+}
+
+////////////////////
+// Page Transiion
+
+@keyframes slide {
+  from {
+    left: -100vw;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.page-transition {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+.cover {
+  width: 100%;
+  height: calc(100vh / 3);
+  //height: 100vh;
+  position: relative;
+  top: 0;
+  left: -100vw;
+}
+
+.cover1,
+.cover3 {
+  background-color: $light-orange;
+}
+
+.cover2 {
+  background-color: #f5f5f5;
+  background-image: url(../img/transition-deco.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+// .page-transition.slide .cover1 {
+//   background-color: $light-orange;
+//   animation: slide 0.4s ease-in-out forwards;
+// }
+
+// .page-transition.slide .cover2 {
+//   background-color: #f5f5f5;
+//   animation: slide 0.4s ease-in-out forwards;
+//   animation-delay: 0.3s;
+// }
+
+// .page-transition.slide .cover3 {
+//   background-color: $light-orange;
+//   animation: slide 0.4s ease-in-out forwards;
+//   animation-delay: 0.6s;
+// }
+// コメントアウトの部分と.page-transitionの指定を消すと横からスライドさせるトランジションになる
+
+html,
+body,
+a,
+a:hover {
+  cursor: none !important;
+}

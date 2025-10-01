@@ -1,0 +1,282 @@
+///////////////////
+// about
+.about-wrapper {
+    position: relative;
+    width: 75%;
+    margin-left: 10%;
+    padding-bottom: 5%;
+  
+    @include md {
+      width: 85%;
+      margin-left: 5%;
+    }
+    @include sm {
+      padding-bottom: calc(5% + 100px);
+    }
+  }
+
+
+.about-lead,
+.about-member-card,
+.c-profile {
+  margin-left: 5%;
+}
+
+.about-title {
+  padding: 5% 0 15px 5%;
+  border-bottom: $main-border-dot;
+  width: 53%;
+
+  @include sm {
+    width: 80%;
+    padding-top: 10%;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: $medium;
+
+    @include sm {
+      font-size: 28px;
+    }
+  }
+}
+.about-lead {
+  margin-top: 5%;
+}
+.about-member-card,
+.c-profile {
+  margin-top: 8%;
+}
+
+.about-lead {
+  display: flex;
+
+  @include sm {
+    flex-direction: column;
+  }
+
+  div {
+    width: 50%;
+    font-size: 14px;
+    line-height: 2;
+
+    @include sm {
+      width: 100%;
+    }
+  }
+}
+
+.about-lead-en {
+  margin-right: 3%;
+
+  @include sm {
+    margin-top: 5%;
+    margin-right: 0;
+  }
+}
+.about-lead-jp {
+  margin-left: 3%;
+
+  @include sm {
+    margin-top: 10%;
+    margin-left: 0;
+  }
+}
+
+.about-member-card {
+  width: 95%;
+  display: flex;
+  border: $main-border;
+  border-right: none;
+
+  @include sm {
+    flex-direction: column;
+
+    border-top: none;
+  }
+}
+
+.member-card-item {
+  width: calc(100% / 3);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+
+  border-right: $main-border;
+
+  @include sm {
+    width: 100%;
+  }
+}
+
+.member-card-img,
+.memner-card-profile {
+  width: 100%;
+  height: 50%;
+}
+
+.member-card-img {
+  position: relative;
+  border-bottom: $main-border;
+  overflow: hidden;
+
+  @include sm {
+    border-top: $main-border;
+  }
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    object-fit: cover;
+
+    @include sm {
+      width: 60%;
+      left: 20%;
+    }
+  }
+}
+
+.memnber-card-profile {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.member-card-name,
+.member-card-intro {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.member-card-name {
+  height: 50px;
+  border-bottom: $main-border;
+  align-items: center;
+
+  text-align: center;
+  line-height: 1.3;
+}
+
+.member-card-intro {
+  height: 150px;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+  }
+
+  .member-card-intro-pos {
+    font-size: 11px;
+
+    span {
+      font-size: 15px;
+      font-weight: $bold;
+    }
+  }
+
+  .member-card-intro-desc {
+    font-size: 13px;
+    margin: 5px 0 10px 0;
+  }
+
+  .member-card-intro-sns {
+    width: 50%;
+    height: 20px;
+    display: flex;
+    justify-content: space-evenly;
+
+    a {
+      transition: transform 0.5s ease;
+    }
+    a:hover {
+      transform: scale(1.4) translateY(-3px);
+    }
+  }
+}
+
+.c-profile {
+  border: $main-border;
+}
+
+.c-profile-title {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  border-bottom: $main-border;
+}
+
+.c-profile-title-label {
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  border-right: $main-border;
+  padding-left: 5%;
+
+  @include sm {
+    width: 75%;
+  }
+}
+
+.c-profile-content {
+  padding: 20px 0;
+}
+
+.c-profile-row {
+  display: flex;
+  margin: 20px 0;
+  font-size: 14px;
+  padding-right: 5%;
+
+  @include md {
+    flex-direction: column;
+  }
+}
+
+.c-profile-head,
+.c-profile-data {
+  padding-left: 5%;
+  letter-spacing: -0.5px;
+}
+
+.c-profile-head {
+  width: calc(100% / 3);
+
+  @include md {
+    width: 100%;
+    margin-bottom: 5px;
+    font-weight: $bold;
+  }
+
+  p {
+    position: relative;
+    margin-left: 14px;
+  }
+  p::before {
+    content: "";
+    position: absolute;
+    background: $light-orange;
+    width: 3px;
+    height: 11px;
+    top: 51%;
+    left: -9px;
+    transform: translateY(-50%);
+  }
+}
+
+.c-profile-data {
+  line-height: 2;
+
+  @include md {
+    margin-bottom: 10px;
+    margin-left: 13px;
+  }
+}
