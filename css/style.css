@@ -652,7 +652,7 @@ footer {
 
 @media (max-width: 767px) {
   footer {
-    margin-bottom: calc(16vh + 49px);
+    margin-bottom: 0; /* remove extra space under footer on mobile */
   }
 }
 
